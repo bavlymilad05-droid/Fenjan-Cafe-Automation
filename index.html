@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fenjan Café | Live Portfolio</title>
+  <meta name="description" content="Fenjan Café live portfolio website with menu, order builder, delivery or pickup choice, and Messenger/Instagram contact options." />
+  <link rel="icon" href="assets/fenjan-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <img src="assets/fenjan-logo.svg" alt="Fenjan logo" />
+        <div>
+          <strong>Fenjan Café</strong>
+          <span data-i18n="brandTag">Smart café ordering experience</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#menu" data-i18n="navMenu">Menu</a>
+        <a href="#order" data-i18n="navOrder">Order</a>
+        <a href="#workflow" data-i18n="navWorkflow">Workflows</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <div class="top-actions">
+        <button id="langToggle" class="pill-btn" type="button">AR</button>
+        <button id="themeToggle" class="pill-btn" type="button">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow" data-i18n="eyebrow">Live Café Automation Portfolio</span>
+          <h1 data-i18n="heroTitle">A modern café experience powered by <span>n8n</span>, AI, and elegant design.</h1>
+          <p class="hero-text" data-i18n="heroText">Browse the menu, build your order, choose delivery or pickup, then continue in Instagram or Messenger chat with a smooth café-style interface.</p>
+          <div class="hero-actions">
+            <a href="#order" class="primary-btn" data-i18n="heroPrimary">Start Your Order</a>
+            <a href="#workflow" class="secondary-btn" data-i18n="heroSecondary">See the Workflows</a>
+          </div>
+          <div class="hero-badges">
+            <span>☕ AI ordering</span>
+            <span>🛵 Delivery / Pickup</span>
+            <span>📦 Kitchen updates</span>
+            <span>📣 Daily specials</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal delay-1">
+          <div class="hero-card-top">
+            <span class="status-dot"></span>
+            <span data-i18n="heroCardTitle">Fenjan Ordering Flow</span>
+          </div>
+          <div class="workflow-preview">
+            <div class="node">Instagram Trigger</div>
+            <div class="connector"></div>
+            <div class="node">Read Message</div>
+            <div class="connector"></div>
+            <div class="node">AI Read Order</div>
+            <div class="connector"></div>
+            <div class="node">Decide Reply</div>
+            <div class="connector"></div>
+            <div class="node accent">Send Reply</div>
+          </div>
+          <div class="mini-note" data-i18n="heroCardNote">Built from the actual Fenjan workflows: DM Orders, Kitchen & Daily Special, and Error Handling.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats-section">
+      <div class="container stats-grid reveal">
+        <div class="stat-card"><strong>3</strong><span data-i18n="stat1">Main workflows</span></div>
+        <div class="stat-card"><strong>15</strong><span data-i18n="stat2">Menu items in demo</span></div>
+        <div class="stat-card"><strong>2</strong><span data-i18n="stat3">Customer chat channels</span></div>
+        <div class="stat-card"><strong>1</strong><span data-i18n="stat4">Unified café experience</span></div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="menuEyebrow">Curated Demo Menu</span>
+          <h2 data-i18n="menuTitle">Pick your favorite drink or snack</h2>
+          <p data-i18n="menuText">This menu is built for the live portfolio demo and matches the Fenjan ordering workflow experience.</p>
+        </div>
+        <div id="menuTabs" class="menu-tabs reveal"></div>
+        <div id="menuGrid" class="menu-grid reveal delay-1"></div>
+      </div>
+    </section>
+
+    <section class="section order-section" id="order">
+      <div class="container order-layout">
+        <div class="builder-card reveal">
+          <div class="section-head left">
+            <span class="eyebrow" data-i18n="builderEyebrow">Interactive Order Builder</span>
+            <h2 data-i18n="builderTitle">Build your order like a real customer</h2>
+            <p data-i18n="builderText">Choose items, set quantities, select pickup or delivery, then copy or send the final order to chat.</p>
+          </div>
+
+          <div class="fulfillment-box">
+            <label class="field-label" data-i18n="fulfillmentLabel">Choose service</label>
+            <div class="segmented">
+              <label><input type="radio" name="fulfillment" value="pickup" checked /> <span data-i18n="pickup">Pickup from café</span></label>
+              <label><input type="radio" name="fulfillment" value="delivery" /> <span data-i18n="delivery">Delivery</span></label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span class="field-label" data-i18n="customerNameLabel">Customer name</span>
+              <input id="customerName" type="text" data-i18n-placeholder="customerNamePlaceholder" placeholder="Your name" />
+            </label>
+            <label>
+              <span class="field-label" data-i18n="phoneLabel">Phone / contact</span>
+              <input id="customerPhone" type="text" data-i18n-placeholder="phonePlaceholder" placeholder="Optional" />
+            </label>
+          </div>
+
+          <label id="addressWrap" class="hidden">
+            <span class="field-label" data-i18n="addressLabel">Delivery address</span>
+            <textarea id="deliveryAddress" rows="3" data-i18n-placeholder="addressPlaceholder" placeholder="Enter your address"></textarea>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="notesLabel">Notes</span>
+            <textarea id="orderNotes" rows="3" data-i18n-placeholder="notesPlaceholder" placeholder="No sugar, extra ice, etc."></textarea>
+          </label>
+
+          <div class="cta-grid">
+            <button id="copyOrderBtn" class="primary-btn" type="button" data-i18n="copyOrder">Copy order text</button>
+            <button id="messengerBtn" class="secondary-btn" type="button" data-i18n="openMessenger">Open Messenger</button>
+            <button id="instagramBtn" class="secondary-btn" type="button" data-i18n="openInstagram">Open Instagram</button>
+          </div>
+          <p class="helper-note" data-i18n="helperNote">Tip: The website copies your order text first, then you can paste it into Messenger or Instagram chat.</p>
+        </div>
+
+        <aside class="cart-card reveal delay-1">
+          <div class="cart-top">
+            <h3 data-i18n="cartTitle">Your order summary</h3>
+            <button id="clearCartBtn" class="text-btn" type="button" data-i18n="clearCart">Clear</button>
+          </div>
+          <div id="cartItems" class="cart-items"></div>
+          <div class="summary-box">
+            <div><span data-i18n="subtotal">Subtotal</span><strong id="subtotalValue">0 EGP</strong></div>
+            <div><span data-i18n="deliveryFee">Delivery fee</span><strong id="deliveryValue">0 EGP</strong></div>
+            <div class="grand-total"><span data-i18n="total">Total</span><strong id="totalValue">0 EGP</strong></div>
+          </div>
+          <div class="summary-text-box">
+            <label class="field-label" data-i18n="generatedMessage">Generated message</label>
+            <textarea id="generatedMessage" rows="12" readonly></textarea>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section workflow-section" id="workflow">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="workflowEyebrow">Workflow Architecture</span>
+          <h2 data-i18n="workflowTitle">The exact automation idea behind Fenjan Café</h2>
+          <p data-i18n="workflowText">This portfolio is based on the uploaded n8n workflow files and presents the customer journey, kitchen operations, and monitoring logic.</p>
+        </div>
+
+        <div class="workflow-cards">
+          <article class="wf-card reveal">
+            <div class="wf-icon">💬</div>
+            <h3>DM Orders (Messenger + Instagram)</h3>
+            <p data-i18n="wf1Text">Handles inbound messages, reads the menu, detects the order using AI, manages carts, saves orders, and replies to the customer.</p>
+            <ul>
+              <li>Instagram Trigger</li>
+              <li>Messenger Trigger</li>
+              <li>Read Message</li>
+              <li>Build AI Prompt</li>
+              <li>AI Read Order</li>
+              <li>Decide Reply</li>
+              <li>Send Reply</li>
+            </ul>
+          </article>
+
+          <article class="wf-card reveal delay-1">
+            <div class="wf-icon">🍽️</div>
+            <h3>Kitchen, Daily Special</h3>
+            <p data-i18n="wf2Text">Lets the kitchen update order status, message the customer, and publish a daily special automatically on schedule.</p>
+            <ul>
+              <li>Kitchen Update</li>
+              <li>Check Order</li>
+              <li>Update Order</li>
+              <li>Message Customer</li>
+              <li>Schedule Trigger</li>
+              <li>Read Specials</li>
+              <li>Pick Today's Special</li>
+            </ul>
+          </article>
+
+          <article class="wf-card reveal delay-2">
+            <div class="wf-icon">🛡️</div>
+            <h3>Error Fenjan</h3>
+            <p data-i18n="wf3Text">Monitors workflow failures, logs them into Google Sheets, and alerts the team through Telegram.</p>
+            <ul>
+              <li>Error Trigger</li>
+              <li>Error Row</li>
+              <li>Log Error</li>
+              <li>Alert Team</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="download-box reveal">
+          <h3 data-i18n="downloadsTitle">Workflow files included</h3>
+          <div class="download-links">
+            <a href="workflows/DM%20Orders%20(Messenger%20%2B%20Instagram).json" download>DM Orders JSON</a>
+            <a href="workflows/Kitchen,%20Daily%20Special.json" download>Kitchen & Daily Special JSON</a>
+            <a href="workflows/Error%20Fenjan.json" download>Error Fenjan JSON</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <span class="eyebrow" data-i18n="contactEyebrow">Customer access</span>
+          <h2 data-i18n="contactTitle">Continue the order in your preferred channel</h2>
+          <p data-i18n="contactText">Use the order builder, copy the generated message, then continue with Messenger or Instagram. This gives the portfolio a real customer-facing flow.</p>
+          <div class="contact-actions">
+            <a id="messengerLink" class="primary-btn" href="#" target="_blank" rel="noopener" data-i18n="contactMessenger">Chat on Messenger</a>
+            <a id="instagramLink" class="secondary-btn" href="#" target="_blank" rel="noopener" data-i18n="contactInstagram">Chat on Instagram</a>
+          </div>
+        </div>
+
+        <div class="contact-card reveal delay-1">
+          <span class="eyebrow" data-i18n="portfolioEyebrow">Portfolio highlights</span>
+          <ul class="feature-list">
+            <li data-i18n="feature1">Elegant café-themed UI with dark mode</li>
+            <li data-i18n="feature2">Arabic / English language toggle</li>
+            <li data-i18n="feature3">Interactive order builder and cart</li>
+            <li data-i18n="feature4">Delivery or pickup selection</li>
+            <li data-i18n="feature5">Workflow showcase with downloadable JSON files</li>
+            <li data-i18n="feature6">Ready to publish on GitHub Pages</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Fenjan Café — Live Portfolio Demo</p>
+      <p data-i18n="footerNote">Designed as a café automation showcase for a university project using n8n workflows.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
